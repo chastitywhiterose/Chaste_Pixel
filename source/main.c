@@ -10,6 +10,16 @@ const int height = 720;
 
 #include "ray_chaste_pixel_polygon.h"
 
+
+void keyboard()
+{
+ if(IsKeyPressed(KEY_ESCAPE))
+ {
+  printf("During main: The program will close now\n");
+ }
+}
+
+
 int x,y;
 Color c;
 
@@ -43,7 +53,7 @@ int main()
   //chaste_pixel(x,y,c);
   //chaste_line(200,200,300,350,c);
   //chaste_polygon_draw();
-  second_delay_raylib(1);
+  //second_delay_raylib(1);
   
   chaste_polygon_draw_star();
   
@@ -59,4 +69,8 @@ raylib_linux:
 raylib_windows:
 	gcc -Wall -std=c99 -pedantic main.c -o main -I/usr/local/include -L/usr/local/lib -lraylib -lopengl32 -lgdi32 -lwinmm -lpthread -static && ./main
 	strip main.exe
+	
+	
+	find / name raylib.h
+	
 */

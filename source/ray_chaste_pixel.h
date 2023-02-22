@@ -22,10 +22,14 @@ void second_delay_raylib(double seconds)
  while(temptime1<temptime0)
  {
   temptime1=GetTime();
-  BeginDrawing(); /*not sure why but program crashes if I don't do begin/end drawing here*/
-  EndDrawing();
+  //BeginDrawing(); /*not required here but it can be used and slows things down for some reason*/
+  EndDrawing(); /*required to refresh the screen*/
+  if(IsKeyPressed(KEY_ESCAPE))
+  {
+   printf("During Delay: The program will close now\n");
+   temptime1=temptime0;break;
+  }
  }
- 
 }
 
 void chaste_pixel(int x,int y,Color color)
