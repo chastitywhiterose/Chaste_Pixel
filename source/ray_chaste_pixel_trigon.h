@@ -10,7 +10,20 @@ raylib has a DrawPixel function which draws the pixels to screen. However it doe
 
 
 
-
+void get_screen_image()
+{
+ Image this_frame=LoadImageFromScreen();
+ int this_frame_width=this_frame.width;
+ int this_frame_height=this_frame.height;
+ //printf("%d\n",this_frame.width);
+ //printf("%d\n",this_frame.height);
+ //return;
+ char filename[256];
+ sprintf(filename,"o/test.png");
+ printf("%s\n",filename);
+ //TakeScreenshot(filename);
+ ExportImage(this_frame,filename);
+}
 
 
 
@@ -33,7 +46,6 @@ raylib has a DrawPixel function which draws the pixels to screen. However it doe
   2,073,600 pixels.
   slightly less than 2 to the power of 21:
   2097152
- 
  
   And this is why video files are often very huge and take major compression to be able to transfer.
  

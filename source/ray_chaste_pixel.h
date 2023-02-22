@@ -8,7 +8,24 @@
 */
 
 
+int frame=0; /*keep track of frame number*/
 
+/*saves the current window as an image file and increments frame number*/
+void TakeScreenshot_frame()
+{
+ Image this_frame=LoadImageFromScreen();
+ //int this_frame_width=this_frame.width;
+ //int this_frame_height=this_frame.height;
+ //printf("%d\n",this_frame.width);
+ //printf("%d\n",this_frame.height);
+ //return;
+ char filename[256];
+ sprintf(filename,"o/%08d.png",frame);
+ printf("%s\n",filename);
+ //TakeScreenshot(filename);
+ ExportImage(this_frame,filename);
+ frame++;
+}
 
 
 void second_delay_raylib(double seconds)
@@ -22,8 +39,6 @@ void second_delay_raylib(double seconds)
  while(temptime1<temptime0)
  {
   temptime1=GetTime();
-  //BeginDrawing(); /*not required here but it can be used and slows things down for some reason*/
-  EndDrawing(); /*required to refresh the screen*/
   if(IsKeyPressed(KEY_ESCAPE))
   {
    printf("During Delay: The program will close now\n");
@@ -34,8 +49,12 @@ void second_delay_raylib(double seconds)
 
 void chaste_pixel(int x,int y,Color color)
 {
+ /*begin and end one frame per pixel*/
+ BeginDrawing();
  DrawPixel(x,y,color);
- second_delay_raylib(0.000000001);
+ EndDrawing();
+ //second_delay_raylib(0.000000001);
+ //TakeScreenshot_frame(); /*this is kinda buggy*/
 }
 
 /*
