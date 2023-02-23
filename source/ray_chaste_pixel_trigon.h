@@ -7,9 +7,11 @@ The purpose of this file is to find creating ways to manipulate triangles. Trian
 /*
 raylib has a DrawPixel function which draws the pixels to screen. However it does not have the same for getting a pixel value from the screen.
 Therefore I will reference my own global pixels array defined in ray_chaste_pixel.h
+
+This is used to do my scan fill algorithm for filling any triangle or regular polygon
 */
 
-/*set all pixels to 0*/
+/*scan fill an area. Works for only certain shapes including triangles*/
 void chaste_scan_fill()
 {
  int x,y,x1;
@@ -33,17 +35,19 @@ void chaste_scan_fill()
      
      while(x<x1) /*fill space between the two on this line*/
      {
-      pixels[x+y*width]=1;x+=1;
+      //pixels[x+y*width]=1;
       chaste_pixel(x,y,c);
+      x+=1;
      }
-       
     
    }
    
    x+=1;
   }
+  c=ColorFromHSV(hue,1,1); hue+=1;
   y+=1;
  }
+ hue+=6;
 }
 
 

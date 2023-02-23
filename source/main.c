@@ -42,7 +42,7 @@ int main()
  init_polygon(); /*setup the polygon initial variables*/
  /*change a few polygon things for this game*/
  main_polygon.radius=height/2;
- main_polygon.sides=3;
+ main_polygon.sides=4;
  main_polygon.step=1;
  
  //main_polygon.cx=width*3/16;
@@ -63,7 +63,7 @@ int main()
   BeginDrawing();
   ClearBackground((Color){0,0,0,255});
   
-  
+  //chaste_polygon_draw();
   chaste_polygon_draw_star();
   
   chaste_scan_fill();
@@ -79,7 +79,6 @@ int main()
   //chaste_pixel(x,y,c);
   
   //chaste_line(200,200,300,350,c);
-  //chaste_polygon_draw();
   //second_delay_raylib(1);
   
   //return 0;
