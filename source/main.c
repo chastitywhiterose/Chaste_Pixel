@@ -7,6 +7,7 @@ const int width = 1280;
 const int height = 720;
 
 Color c; /*global color used when drawing pixels*/
+int hue;
 
 #include "ray_chaste_pixel.h"
 #include "ray_chaste_pixel_polygon.h"
@@ -34,6 +35,10 @@ int main()
  y=200;
  c=(Color){255,255,255,255};
  
+ hue=0;
+ 
+ c=ColorFromHSV(hue,1,1);
+ 
  init_polygon(); /*setup the polygon initial variables*/
  /*change a few polygon things for this game*/
  main_polygon.radius=height/2;
@@ -45,7 +50,7 @@ int main()
  
  //main_polygon.radius-=30;
  
- main_polygon.radius=300;
+ main_polygon.radius=320;
  
  printf("radius %f\n",main_polygon.radius);
 
@@ -61,11 +66,12 @@ int main()
   
   chaste_polygon_draw_star();
   
-chaste_scan_fill();
+  chaste_scan_fill();
   
   
   
   
+  //main_polygon.color=ColorFromHSV(hue,1,1); hue++;
   
   main_polygon.radians+=PI/180;
   

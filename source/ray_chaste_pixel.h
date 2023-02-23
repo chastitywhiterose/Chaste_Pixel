@@ -58,11 +58,12 @@ void chaste_pixel(int x,int y,Color color)
 {
  /*begin and end one frame per pixel*/
  //BeginDrawing();
- DrawPixel(x,y,color);
+ DrawPixel(x,y,color); /*draw this pixel to the screen*/
+ pixels[x+y*width]=1; /*mark this pixel in the array as drawn*/
+ c=ColorFromHSV(hue,1,1); hue++; /*change hue optionally*/
  //EndDrawing();
- second_delay_raylib(0.0000001);
+ //second_delay_raylib(0.0001);
  //TakeScreenshot_frame(); /*this is kinda buggy*/
- pixels[x+y*width]=1;
 }
 
 /*set all pixels to 0*/
