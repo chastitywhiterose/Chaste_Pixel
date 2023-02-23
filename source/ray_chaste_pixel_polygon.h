@@ -125,9 +125,9 @@ void chaste_polygon_draw_star()
   //DrawTriangleLines(polygon_vectors[i],center,polygon_vectors[i1],main_polygon.color); //outline with lines to center
   //DrawLineV(polygon_vectors[i],polygon_vectors[i1],main_polygon.color); //outline only with outer points
   
-  DrawLine(polygon_xpoints[i],polygon_ypoints[i],polygon_xpoints[i1],polygon_ypoints[i1], main_polygon.color);
+  //DrawLine(polygon_xpoints[i],polygon_ypoints[i],polygon_xpoints[i1],polygon_ypoints[i1], main_polygon.color);
   
-  //chaste_line(polygon_xpoints[i],polygon_ypoints[i],polygon_xpoints[i1],polygon_ypoints[i1], main_polygon.color);
+  chaste_line(polygon_xpoints[i],polygon_ypoints[i],polygon_xpoints[i1],polygon_ypoints[i1], main_polygon.color);
   
   i++;
  }

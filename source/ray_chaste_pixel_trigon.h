@@ -6,24 +6,50 @@ The purpose of this file is to find creating ways to manipulate triangles. Trian
 
 /*
 raylib has a DrawPixel function which draws the pixels to screen. However it does not have the same for getting a pixel value from the screen.
+Therefore I will reference my own global pixels array defined in ray_chaste_pixel.h
 */
 
-
-
-void get_screen_image()
+/*set all pixels to 0*/
+void chaste_scan_fill()
 {
- Image this_frame=LoadImageFromScreen();
- int this_frame_width=this_frame.width;
- int this_frame_height=this_frame.height;
- //printf("%d\n",this_frame.width);
- //printf("%d\n",this_frame.height);
- //return;
- char filename[256];
- sprintf(filename,"o/test.png");
- printf("%s\n",filename);
- //TakeScreenshot(filename);
- ExportImage(this_frame,filename);
+ int x,y,x1;
+ y=0;
+ while(y<height)
+ {
+  x=0;
+  while(x<width)
+  {
+   //pixels[x+y*width]=0;
+   if(pixels[x+y*width]!=0) /*find left edge*/
+   {
+    //printf("found left edge at x=%d,y=%d\n",x,y);
+    
+     x1=width;
+     while(x1>0)
+     {
+      x1-=1;
+      if(pixels[x1+y*width]!=0){break;} /*find right edge*/
+     }
+     
+     while(x<x1) /*fill space between the two on this line*/
+     {
+      pixels[x+y*width]=1;x+=1;
+      chaste_pixel(x,y,c);
+     }
+       
+    
+   }
+   
+   x+=1;
+  }
+  y+=1;
+ }
 }
+
+
+
+
+
 
 
 

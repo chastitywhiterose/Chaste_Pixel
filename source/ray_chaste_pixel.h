@@ -47,14 +47,39 @@ void second_delay_raylib(double seconds)
  }
 }
 
+/*
+ pixel array to keep track of which pixels I have drawn with my function
+ It is char type because it uses only values of 0 or 1.
+*/
+char pixels[0x1000000];
+
+
 void chaste_pixel(int x,int y,Color color)
 {
  /*begin and end one frame per pixel*/
- BeginDrawing();
+ //BeginDrawing();
  DrawPixel(x,y,color);
- EndDrawing();
- //second_delay_raylib(0.000000001);
+ //EndDrawing();
+ second_delay_raylib(0.0000001);
  //TakeScreenshot_frame(); /*this is kinda buggy*/
+ pixels[x+y*width]=1;
+}
+
+/*set all pixels to 0*/
+void clear_pixels()
+{
+ int x,y;
+ y=0;
+ while(y<height)
+ {
+  x=0;
+  while(x<width)
+  {
+   pixels[x+y*width]=0;
+   x+=1;
+  }
+  y+=1;
+ }
 }
 
 /*

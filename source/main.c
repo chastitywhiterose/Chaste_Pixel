@@ -6,6 +6,8 @@
 const int width = 1280;
 const int height = 720;
 
+Color c; /*global color used when drawing pixels*/
+
 #include "ray_chaste_pixel.h"
 #include "ray_chaste_pixel_polygon.h"
 #include "ray_chaste_pixel_trigon.h"
@@ -22,11 +24,12 @@ void keyboard()
 }
 
 
-int x,y;
-Color c;
+
 
 int main()
 {
+ int x,y;
+
  x=100;
  y=200;
  c=(Color){255,255,255,255};
@@ -40,7 +43,9 @@ int main()
  //main_polygon.cx=width*3/16;
  //main_polygon.cy=height*13/16;
  
- main_polygon.radius-=30;
+ //main_polygon.radius-=30;
+ 
+ main_polygon.radius=300;
  
  printf("radius %f\n",main_polygon.radius);
 
@@ -48,22 +53,30 @@ int main()
  SetTargetFPS(60);
  while(!WindowShouldClose())
  {
+  clear_pixels();
+ 
   BeginDrawing();
-    
   ClearBackground((Color){0,0,0,255});
-  chaste_polygon_draw_star();
-  EndDrawing();
   
+  
+  chaste_polygon_draw_star();
+  
+  
+  
+  
+  chaste_scan_fill();
+  
+  main_polygon.radians+=PI/180;
+  
+  EndDrawing();
+
   //chaste_pixel(x,y,c);
+  
   //chaste_line(200,200,300,350,c);
   //chaste_polygon_draw();
   //second_delay_raylib(1);
   
-
-  
-  
-  
-  //get_screen_image();
+  //return 0;
  }
  CloseWindow();
  return 0;
