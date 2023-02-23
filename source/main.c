@@ -61,15 +61,15 @@ int main()
   
   chaste_polygon_draw_star();
   
+chaste_scan_fill();
   
   
   
-  chaste_scan_fill();
+  
   
   main_polygon.radians+=PI/180;
   
   EndDrawing();
-
   //chaste_pixel(x,y,c);
   
   //chaste_line(200,200,300,350,c);
