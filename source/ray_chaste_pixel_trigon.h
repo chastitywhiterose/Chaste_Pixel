@@ -96,6 +96,48 @@ void chaste_trigon_mid(int x0,int y0,int x1,int y1,int x2,int y2,Color color)
 
 
 
+
+
+
+
+/*
+ The flood fill algorithm is complex. I got the basic layout from here:
+ https://rosettacode.org/wiki/Bitmap/Flood_fill#C
+*/
+
+
+
+/*
+my flood fill algorithm for this project does not take a color argument because it is using assumed values of 0 and 1 just like my scan_fill function earlier in this file
+*/
+void chaste_flood_fill(int x,int y)
+{
+ int oldColor=0,newColor=1;
+ 
+ if ( 0 <= x && x < height 
+    &&   0 <= y && y < width 
+    &&   pixels[x+y*width]!=0 == oldColor )
+    {
+        bitmap[x][j] = newColor;
+        floodFill(x-1,y);
+        floodFill(x+1,y);
+        floodFill(x,y-1);
+        floodFill(x,y+1);
+ 
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
 /*find approximate center of a triangle and then fill from that spot*/
 void chaste_trigon_fill(int x0,int y0,int x1,int y1,int x2,int y2,Color color)
 {
