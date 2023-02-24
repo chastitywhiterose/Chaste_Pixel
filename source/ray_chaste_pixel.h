@@ -60,7 +60,7 @@ void chaste_pixel(int x,int y,Color color)
  //BeginDrawing();
  DrawPixel(x,y,color); /*draw this pixel to the screen*/
  pixels[x+y*width]=1; /*mark this pixel in the array as drawn*/
- c=ColorFromHSV(hue,1,1); hue+=2; /*change hue optionally*/
+ //c=ColorFromHSV(hue,1,1); hue+=1; /*change hue optionally*/
  //EndDrawing();
  //second_delay_raylib(0.0001);
  //TakeScreenshot_frame(); /*this is kinda buggy*/

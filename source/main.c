@@ -36,12 +36,12 @@ int main()
  
  hue=0;
  
- c=ColorFromHSV(hue,1,1);
+ //c=ColorFromHSV(hue,1,1);
  
  init_polygon(); /*setup the polygon initial variables*/
  /*change a few polygon things for this game*/
  main_polygon.radius=height/2;
- main_polygon.sides=4;
+ main_polygon.sides=5;
  main_polygon.step=1;
  
  //main_polygon.cx=width*3/16;
@@ -49,7 +49,7 @@ int main()
  
  //main_polygon.radius-=30;
  
- main_polygon.radius=320;
+ main_polygon.radius=120;
  
  printf("radius %f\n",main_polygon.radius);
 
@@ -67,7 +67,9 @@ int main()
   
   
   
-  chaste_scan_fill();
+  //chaste_scan_fill();
+  
+  chaste_flood_fill(main_polygon.cx,main_polygon.cy);
   
   //chaste_trigon(200,200,200,400,400,200,c);
   

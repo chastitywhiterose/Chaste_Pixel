@@ -128,9 +128,12 @@ void chaste_polygon_draw_star()
   //DrawLine(polygon_xpoints[i],polygon_ypoints[i],polygon_xpoints[i1],polygon_ypoints[i1], main_polygon.color);
   
   chaste_line(polygon_xpoints[i],polygon_ypoints[i],polygon_xpoints[i1],polygon_ypoints[i1], main_polygon.color);
-  
   i++;
  }
+ 
+ /*after all lines are drawn, optionally flood fill*/
+ //chaste_flood_fill(main_polygon.cx,main_polygon.cy);
+ 
 }
 
 

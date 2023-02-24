@@ -1,0 +1,27 @@
+raylib_linux:
+	gcc -Wall -std=c99 -pedantic main.c -o main -lraylib -lOpenGL -lm -lpthread -ldl -lrt -lX11 && ./main
+	
+	
+	raylib_linux:
+	gcc -Wall -std=c99 -pedantic main.c -o main -lraylib -lOpenGL -lm -lpthread -ldl -lrt -lX11 -Wl,--stack,10485760 && ./main
+	
+	
+	
+	
+	
+	https://www.appsloveworld.com/cplus/100/55/how-to-increase-the-gcc-executable-stack-size
+	
+	
+	
+	On Linux, you can expand the stack size in /etc/security/limits.conf.
+
+You can check your current stack size by using
+
+$ ulimit -s
+8192
+
+Then expand the stack to be double than that:
+
+youruser    soft    stack    16384
+
+And then relog.
