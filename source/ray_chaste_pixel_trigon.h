@@ -51,11 +51,48 @@ void chaste_scan_fill()
 }
 
 
+/*
+ function to arbitrarily draw any triangle, not just the regular ones
+*/
+void chaste_trigon(int x0,int y0,int x1,int y1,int x2,int y2,Color color)
+{
+ chaste_line(x0,y0,x1,y1,c);
+ chaste_line(x1,y1,x2,y2,c);
+ chaste_line(x2,y2,x0,y0,c);
+}
 
 
 
 
 
+/*
+ function to draw any triangle, but also draw corner to midpoint of lines
+*/
+void chaste_trigon_mid(int x0,int y0,int x1,int y1,int x2,int y2,Color color)
+{
+ int mx,my;
+ 
+
+ chaste_line(x0,y0,x1,y1,c); /*line 0*/
+ 
+ mx=(x0+x1)/2;
+ my=(y0+y1)/2;
+ chaste_line(mx,my,x2,y2,c); /*midpoint of line 0 to point 2*/
+ 
+ 
+ chaste_line(x1,y1,x2,y2,c); /*line 1*/
+ 
+ mx=(x1+x2)/2;
+ my=(y1+y2)/2;
+ chaste_line(mx,my,x0,y0,c); /*midpoint of line 1 to point 0*/
+ 
+ chaste_line(x2,y2,x0,y0,c); /*line 2*/
+ 
+ mx=(x2+x0)/2;
+ my=(y2+y0)/2;
+ chaste_line(mx,my,x1,y1,c); /*midpoint of line 2 to point 1*/
+ 
+}
 
 
 

@@ -4,7 +4,7 @@
  the goal for this library is to be able to draw pixels one at a time and yet introduce a delay as the pixels are drawn to help
  create animations of things like lines being slowly drawn.
  
- Every graphics library has a pixel drawing function and in this case.
+ Every graphics library has a pixel drawing function and in this case it is DrawPixel from Raylib.
 */
 
 

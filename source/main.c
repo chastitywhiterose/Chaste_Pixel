@@ -64,19 +64,22 @@ int main()
   ClearBackground((Color){0,0,0,255});
   
   //chaste_polygon_draw();
-  chaste_polygon_draw_star();
-  
-  chaste_scan_fill();
+  //chaste_polygon_draw_star();
   
   
   
+  //chaste_scan_fill();
+  
+  //chaste_trigon(200,200,200,400,400,200,c);
+  
+  chaste_trigon_mid(200,200,200,400,400,200,c);
   
   //main_polygon.color=ColorFromHSV(hue,1,1); hue++;
   
-  main_polygon.radians+=PI/180;
+  //main_polygon.radians+=PI/180;
   
   EndDrawing();
-  //chaste_pixel(x,y,c);
+  chaste_pixel(x,y,c);
   
   //chaste_line(200,200,300,350,c);
   //second_delay_raylib(1);
