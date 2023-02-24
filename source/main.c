@@ -72,7 +72,9 @@ int main()
   
   //chaste_trigon(200,200,200,400,400,200,c);
   
-  chaste_trigon_mid(200,200,200,400,400,200,c);
+  //chaste_trigon_mid(200,200,200,400,400,200,c);
+  
+  chaste_trigon_fill(200,200,200,400,400,200,c);
   
   //main_polygon.color=ColorFromHSV(hue,1,1); hue++;
   

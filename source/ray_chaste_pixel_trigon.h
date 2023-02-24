@@ -96,6 +96,30 @@ void chaste_trigon_mid(int x0,int y0,int x1,int y1,int x2,int y2,Color color)
 
 
 
+/*find approximate center of a triangle and then fill from that spot*/
+void chaste_trigon_fill(int x0,int y0,int x1,int y1,int x2,int y2,Color color)
+{
+ int mx,my,mx1,my1;
+ 
+
+ chaste_line(x0,y0,x1,y1,c); /*line 0*/
+ chaste_line(x1,y1,x2,y2,c); /*line 1*/
+ chaste_line(x2,y2,x0,y0,c); /*line 2*/
+ 
+ 
+ mx=(x0+x1)/2;
+ my=(y0+y1)/2;
+ mx1=(mx+x2)/2;
+ my1=(my+y2)/2;
+ 
+// chaste_line(mx1,my1,x2,y2,c); 
+ chaste_pixel(mx1,my1,c);
+ 
+ 
+}
+
+
+
 
 /*
  Pixel Math Facts
