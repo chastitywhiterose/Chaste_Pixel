@@ -108,22 +108,23 @@ void chaste_trigon_mid(int x0,int y0,int x1,int y1,int x2,int y2,Color color)
 
 
 /*
-my flood fill algorithm for this project does not take a color argument because it is using assumed values of 0 and 1 just like my scan_fill function earlier in this file
+my flood fill algorithm for this project does not take a color argument because it is using assumed values of 0 and 1 just like my scan_fill function earlier in this file.
 */
 void chaste_flood_fill(int x,int y)
 {
  int oldColor=0,newColor=1;
  
  if ( 0 <= x && x < height 
-    &&   0 <= y && y < width 
-    &&   pixels[x+y*width]!=0 == oldColor )
-    {
-        bitmap[x][j] = newColor;
-        floodFill(x-1,y);
-        floodFill(x+1,y);
-        floodFill(x,y-1);
-        floodFill(x,y+1);
-  }
+ &&   0 <= y && y < width 
+ &&   pixels[x+y*width] == oldColor )
+ {
+  chaste_pixel(x,y,c);
+  //pixels[x+y*width] = newColor;
+  chaste_flood_fill(x-1,y);
+  chaste_flood_fill(x+1,y);
+  chaste_flood_fill(x,y-1);
+  chaste_flood_fill(x,y+1);
+ }
 
 }
 
@@ -155,7 +156,9 @@ void chaste_trigon_fill(int x0,int y0,int x1,int y1,int x2,int y2,Color color)
  my1=(my+y2)/2;
  
 // chaste_line(mx1,my1,x2,y2,c); 
- chaste_pixel(mx1,my1,c);
+ //chaste_pixel(mx1,my1,c);
+ 
+ chaste_flood_fill(mx1,my1);
  
  
 }

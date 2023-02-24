@@ -10,8 +10,8 @@ Color c; /*global color used when drawing pixels*/
 int hue;
 
 #include "ray_chaste_pixel.h"
-#include "ray_chaste_pixel_polygon.h"
 #include "ray_chaste_pixel_trigon.h"
+#include "ray_chaste_pixel_polygon.h"
 
 
 
@@ -29,10 +29,9 @@ void keyboard()
 
 int main()
 {
- int x,y;
+ //int x,y;
 
- x=100;
- y=200;
+
  c=(Color){255,255,255,255};
  
  hue=0;
@@ -64,24 +63,27 @@ int main()
   ClearBackground((Color){0,0,0,255});
   
   //chaste_polygon_draw();
-  //chaste_polygon_draw_star();
+  chaste_polygon_draw_star();
   
   
   
-  //chaste_scan_fill();
+  chaste_scan_fill();
   
   //chaste_trigon(200,200,200,400,400,200,c);
   
   //chaste_trigon_mid(200,200,200,400,400,200,c);
   
-  chaste_trigon_fill(200,200,200,400,400,200,c);
+  //chaste_trigon_fill(200,200,200,600,600,200,c);
   
   //main_polygon.color=ColorFromHSV(hue,1,1); hue++;
   
   //main_polygon.radians+=PI/180;
   
+  //chaste_pixel(100,100,c);
+  
   EndDrawing();
-  chaste_pixel(x,y,c);
+  
+  
   
   //chaste_line(200,200,300,350,c);
   //second_delay_raylib(1);
