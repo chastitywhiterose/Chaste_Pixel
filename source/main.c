@@ -41,7 +41,7 @@ int main()
  init_polygon(); /*setup the polygon initial variables*/
  /*change a few polygon things for this game*/
  main_polygon.radius=height/2;
- main_polygon.sides=3;
+ main_polygon.sides=6;
  main_polygon.step=1;
  
  //main_polygon.cx=width*3/16;

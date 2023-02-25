@@ -118,14 +118,17 @@ void chaste_flood_fill(int x,int y)
  if ( 0 <= x && x < width &&   0 <= y && y < height 
  &&   pixels[x+y*width] == oldColor )
  {
-//  c=ColorFromHSV(hue,1,1); hue+=1; /*change hue optionally*/
+  //c=ColorFromHSV(hue,1,1); hue+=1; /*change hue optionally*/
   chaste_pixel(x,y,c);
-
   pixels[x+y*width] = newColor;
-  chaste_flood_fill(x-1,y);
-  chaste_flood_fill(x+1,y);
-  chaste_flood_fill(x,y-1);
-  chaste_flood_fill(x,y+1);
+  chaste_flood_fill(x-1,y); 
+  chaste_flood_fill(x+1,y);   
+
+  //c=ColorFromHSV(hue,1,1); hue+=1;
+
+  chaste_flood_fill(x,y-1); 
+  chaste_flood_fill(x,y+1); 
+  
  }
 
 }

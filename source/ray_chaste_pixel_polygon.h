@@ -95,6 +95,9 @@ void chaste_polygon_draw()
   
   i++;
  }
+ 
+ chaste_flood_fill(main_polygon.cx,main_polygon.cy);
+ 
 }
 
 
@@ -145,6 +148,7 @@ void chaste_polygon_draw_star()
  A special convex regular polygon function.
  It draws the outer lines of the polygon and also lines from the center to the corners.
  This splits them up into smaller triangles which can be filled.
+ This is designed to reduce stack space when calling the recursive flood fill function.
 */
 void chaste_polygon_draw_filled()
 {
@@ -176,17 +180,13 @@ void chaste_polygon_draw_filled()
   //chaste_line(main_polygon.cx,main_polygon.cy,x2,y2,main_polygon.color);
   //chaste_pixel(x2,y2,main_polygon.color);
 
+   //c=ColorFromHSV(hue,1,1); hue+=61;
   
    chaste_flood_fill(x2,y2);
-
   i++;
  }
  
-
- 
- 
-   //chaste_flood_fill(main_polygon.cx,main_polygon.cy);
-
+ //chaste_flood_fill(main_polygon.cx,main_polygon.cy);
  
 }
 
