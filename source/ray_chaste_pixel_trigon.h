@@ -47,7 +47,7 @@ void chaste_scan_fill()
   c=ColorFromHSV(hue,1,1); hue+=1;
   y+=1;
  }
- hue+=6;
+ //hue+=6;
 }
 
 
@@ -115,11 +115,12 @@ int oldColor=0,newColor=1;
 
 void chaste_flood_fill(int x,int y)
 {
- if ( 0 <= x && x < height 
- &&   0 <= y && y < width 
+ if ( 0 <= x && x < width &&   0 <= y && y < height 
  &&   pixels[x+y*width] == oldColor )
  {
+//  c=ColorFromHSV(hue,1,1); hue+=1; /*change hue optionally*/
   chaste_pixel(x,y,c);
+
   pixels[x+y*width] = newColor;
   chaste_flood_fill(x-1,y);
   chaste_flood_fill(x+1,y);
@@ -158,7 +159,6 @@ void chaste_trigon_fill(int x0,int y0,int x1,int y1,int x2,int y2,Color color)
  
 // chaste_line(mx1,my1,x2,y2,c); 
  //chaste_pixel(mx1,my1,c);
- 
  chaste_flood_fill(mx1,my1);
  
  
